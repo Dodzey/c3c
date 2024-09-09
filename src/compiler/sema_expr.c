@@ -1371,6 +1371,7 @@ INLINE bool sema_set_default_argument(SemaContext *context, CalledDecl *callee, 
                                       bool *no_match_ref, Expr **expr_ref, Variadic variadic, bool has_named,
                                       bool after_vaarg, int needed, Expr *prev, bool *optional)
 {
+	if (!param) return true;
 	Expr *init_expr = param->var.init_expr;
 	if (!init_expr) return true;
 	Expr *arg = copy_expr_single(init_expr);
